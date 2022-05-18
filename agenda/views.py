@@ -1,9 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from models import Item
+from .models import Item
 
 def index(request):
-    agenda_item = Item.objects[0]
-    output = agenda_item.item_text + " due " + str(agenda_item.due_month) + "/" + (agenda_item.due_day)
-    return HttpResponse(output)
+    items = Item.objects.all()
+    if not items:
+        return HttpResponse("No agenda items to display here.<br>")
+    else:
+        output = "=== Listing Agenda Items ===<br>"
+        for i,item in enumerate(items):
+            output += str(i + 1) + ") " + item.item_text + " due " + str(item.item_due_month) + "/" + str(item.item_due_day) + "<br>"
+        return HttpResponse(output)
