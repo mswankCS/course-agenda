@@ -1,1 +1,1 @@
-# course-agenda
+# course-agenda by Miles Swank
