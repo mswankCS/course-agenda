@@ -42,14 +42,7 @@ def add_item(request):
             serializer.save()
     return Response(serializer.data)
 
-# @api_view(['DELETE'])
-# def delete_item(request, pk):
-#     try :
-#         item = Item.objects.get(pk)
-#     except Item.DoesNotExist:
-#         return HttpResponse(status=404)
-
 # TODO
 @api_view(['PUT'])
-def update_item(request):
+def update_item(request, pk):
     return 0
