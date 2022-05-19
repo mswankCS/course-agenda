@@ -8,6 +8,7 @@ from rest_framework import status
 from agenda.models import Item
 from .serializers import ItemSerializer
 
+# GET function - get all agenda Items
 @api_view(['GET'])
 def get_data(request):
     if request.method == 'GET':
@@ -16,6 +17,7 @@ def get_data(request):
         return Response(serializer.data)
 
 # unused atm
+# GET function - get individual agenda Item by pk
 @api_view(['GET', 'DELETE'])
 def get_item(request, pk):
     try :
@@ -31,6 +33,7 @@ def get_item(request, pk):
         item.delete()
         return Response(status=status.HTTP_404_NOT_FOUND)
 
+# POST function - add new agenda Item to DB
 @api_view(['POST'])
 def add_item(request):
     if request.method == 'POST':
@@ -46,7 +49,7 @@ def add_item(request):
 #     except Item.DoesNotExist:
 #         return HttpResponse(status=404)
 
-
+# TODO
 @api_view(['PUT'])
 def update_item(request):
     return 0

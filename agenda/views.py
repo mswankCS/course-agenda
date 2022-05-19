@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from .models import Item
 from api.serializers import ItemSerializer
 
-
+# Currently unused
 def index(request):
     items = Item.objects.all()
     if not items:
