@@ -8,4 +8,4 @@ def display(request):
     if not lines:
         return HttpResponse("No text to display here.<br>")
     else:
-        return HttpResponse(lines[0].text)
+        return render(request, 'hello.html', {'line': lines[0]})
