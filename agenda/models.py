@@ -7,6 +7,7 @@ END_OF_SEMESTER_DATE = '2000-01-01'
 class Item(models.Model):
     text = models.CharField(max_length = 255)
     due_date = models.DateField(default=END_OF_SEMESTER_DATE)
+    last_modified = models.DateField(auto_now=True)
 
     #to string function
     def __str__(self):
